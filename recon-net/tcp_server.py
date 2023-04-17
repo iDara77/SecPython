@@ -1,11 +1,13 @@
 import socket, argparse, logging
 
+DEFAULT_HOST = socket.gethostname()
+DEFAULT_PORT = 444
      
 def argument_parser():
     desc = "TCP server. Accepts host and port and returns hello before closing connection"
     parser = argparse.ArgumentParser(description=desc)
-    parser.add_argument("-o","--host",help="Host to bind on socket", default=socket.gethostname())
-    parser.add_argument("-p","--port",help="Port to bind on socket", default=444)
+    parser.add_argument("-o","--host",help="Host to bind on socket", default=DEFAULT_HOST)
+    parser.add_argument("-p","--port",help="Port to bind on socket", default=DEFAULT_PORT)
     parser.add_argument("-l","--limit",help="Number of simultaneous connections",default=3)
     parser.add_argument("-ll","--logging_level",help="Number of simultaneous connections",default=logging.INFO, type=int)
     
