@@ -5,6 +5,7 @@ from bitstring import BitArray
 
 DIR = os.path.dirname(os.path.realpath(__file__))
 IMAGE_ORIG=f"{DIR}/image_orig.jpg"
+IMAGE_STEG=f"{DIR}/image_stega.jpg"
 CODE_ORIG=f"{DIR}/dataobfuscator.py"
 LSB_PAYLOAD_LENGTH_BITS = 32
 
@@ -70,9 +71,12 @@ def obfuscate_via_lsb(data, img):
                 break
         return img
     except IOError:
-        print("Could not open {}. Check that the file exists and it is a valid image file.".format(input_file))
+        # print("Could not open {}. Check that the file exists and it is a valid image file.".format(input_file))
         exit(1)
 
 obfuscate_via_lsb(code, img)
 ################
 
+## Sauvegarder le résultat dans une nouvelle image JPG
+img.save(IMAGE_STEG)
+################
