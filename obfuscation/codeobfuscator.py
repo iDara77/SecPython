@@ -42,7 +42,7 @@ code = loadCode(CODE_ORIG)
 ################
 
 ## Valider que la taille du code compressé est inférieure à la tailla maximale permise
-if len(code)*8 > max_code_size:
+if len(code) > max_code_size:
     raise Exception("Code size cannot be greather than image size")
 ################
 
